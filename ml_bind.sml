@@ -1,0 +1,2 @@
+
+structure Main = Main
