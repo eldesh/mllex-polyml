@@ -7,6 +7,8 @@ POLYMLFLAGS := -q --error-exit
 PDFLATEX    := pdflatex
 DIFF        := diff
 
+PREFIX      := /usr/local
+
 NAME := mllex-polyml
 
 DOCS := $(NAME).pdf
@@ -48,6 +50,18 @@ test: $(NAME)
 	PATH=.:$(PATH) $(NAME) ml.lex
 	$(DIFF) ml.lex.sml ml.lex.sml.exp
 	$(RM)   ml.lex.sml
+
+
+
+.PHONY: install
+ifeq ($(shell which $(PDFLATEX) 2>/dev/null),)
+install: $(NAME)
+	install -D -m 0755 -t $(PREFIX)/bin/                $(NAME)
+else
+install: $(NAME) $(DOCS)
+	install -D -m 0755 -t $(PREFIX)/bin/                $(NAME)
+	install -D -m 0444 -t $(PREFIX)/share/mllex-polyml/ $(DOCS)
+endif
 
 
 .PHONY: clean
