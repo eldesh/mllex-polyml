@@ -35,8 +35,8 @@ lexgen.pdf: lexgen.tex
 	$(PDFLATEX) lexgen.tex
 
 
-mllex_polyml.pdf: lexgen.pdf
-	cp lexgen.pdf mllex.pdf
+$(NAME).pdf: lexgen.pdf
+	cp lexgen.pdf $@
 
 
 .PHONY: docs
@@ -54,4 +54,5 @@ test: $(NAME)
 clean:
 	-$(RM) $(NAME) $(NAME).o
 	-$(RM) $(DOCS)
+	-$(RM) lexgen.aux lexgen.log lexgen.toc lexgen.pdf
 
