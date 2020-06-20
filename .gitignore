@@ -1,0 +1,12 @@
+# make
+mllex_polyml
+mllex_polyml.o
+# make test
+ml.lex.sml
+# make doc
+lexgen.pdf
+mllex_polyml.pdf
+*.aux
+*.log
+*.pdf
+*.toc
