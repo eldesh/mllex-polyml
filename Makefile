@@ -7,14 +7,14 @@ POLYMLFLAGS := -q --error-exit
 PDFLATEX    := pdflatex
 DIFF        := diff
 
-NAME := mllex_polyml
+NAME := mllex-polyml
 
 DOCS := $(NAME).pdf
 
-SRC := $(wildcard *.sml)
+SRCS := $(wildcard *.sml)
 
 
-all:	$(NAME)
+all:	$(NAME) $(DOCS)
 
 
 $(NAME): $(NAME).o
@@ -22,7 +22,7 @@ $(NAME): $(NAME).o
 	@$(POLYMLC) -o $@ $^
 
 
-$(NAME).o: $(SRC)
+$(NAME).o: $(SRCS)
 	@echo "  [POLYML] $@"
 	@echo "" | $(POLYML) $(POLYMLFLAGS) \
 		--eval 'PolyML.make (OS.FileSys.getDir())' \
