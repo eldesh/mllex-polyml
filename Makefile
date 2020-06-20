@@ -45,7 +45,7 @@ docs: $(DOCS)
 
 .PHONY: test
 test: $(NAME)
-	./$(NAME) ml.lex
+	PATH=.:$(PATH) $(NAME) ml.lex
 	$(DIFF) ml.lex.sml ml.lex.sml.exp
 	$(RM)   ml.lex.sml
 
