@@ -1,11 +1,9 @@
-# make
-mllex-polyml
-mllex-polyml.o
-# make test
+# binary files
+bin/
+*.o
+# test
 ml.lex.sml
-# make doc
-lexgen.pdf
-mllex-polyml.pdf
+# doc
 *.aux
 *.log
 *.pdf
