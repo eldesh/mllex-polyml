@@ -7,7 +7,7 @@ POLYMLFLAGS := -q --error-exit
 PDFLATEX    := pdflatex
 DIFF        := diff
 
-PREFIX      := /usr/local
+PREFIX      := /usr/local/polyml
 
 NAME := mllex-polyml
 
@@ -50,7 +50,6 @@ test: $(NAME)
 	PATH=.:$(PATH) $(NAME) ml.lex
 	$(DIFF) ml.lex.sml ml.lex.sml.exp
 	$(RM)   ml.lex.sml
-
 
 
 .PHONY: install
